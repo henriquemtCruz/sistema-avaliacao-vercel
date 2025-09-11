@@ -1,0 +1,89 @@
+body {
+    font-family: sans-serif;
+    background-color: #121212;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #1e1e1e;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+}
+
+h1 {
+    color: #bb86fc;
+}
+
+.rating-stars {
+    font-size: 3rem;
+    cursor: pointer;
+    margin: 1.5rem 0;
+}
+
+.star {
+    color: #6a6a6a;
+    transition: color 0.2s;
+}
+
+.star.active {
+    color: #ffd700;
+}
+
+/* Estilo para o hover */
+.star:hover {
+    color: #ffc107; /* Cor ligeiramente mais clara no hover */
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.6); /* Efeito de blur dourado */
+    transform: scale(1.1); /* Um leve aumento para destacar */
+}
+
+/* Estilo para o hover, mas apenas nas estrelas "ativas" */
+.star.active:hover {
+    text-shadow: 0 0 12px rgba(255, 215, 0, 0.8); /* Blur mais intenso para estrelas ativas no hover */
+    transform: scale(1.15);
+}
+
+textarea {
+    width: 90%;
+    height: 100px;
+    margin: 1rem 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    background-color: #2c2c2c;
+    color: #fff;
+    resize: none;
+}
+
+#submit-btn {
+    padding: 10px 20px;
+    border: none;
+    background-color: #6200ee;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#submit-btn:hover:not(:disabled) {
+    background-color: #4b00b4;
+}
+
+#submit-btn:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+}
+
+#message {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #03dac6;
+}
