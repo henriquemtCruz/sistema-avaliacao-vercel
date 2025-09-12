@@ -7,6 +7,7 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
+    gap: 2rem; /* espaço entre container e reviews */
 }
 
 .container {
@@ -86,4 +87,42 @@ textarea {
     margin-top: 1rem;
     font-size: 1rem;
     color: #03dac6;
+}
+
+/* caixa das reviews */
+#reviews-container {
+    background-color: #1e1e1e;
+    padding: 1.5rem;
+    border-radius: 8px;
+    max-width: 300px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+#reviews-container h2 {
+    color: #bb86fc;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+#reviews-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#reviews-list li {
+    background: #2c2c2c;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    line-height: 1.3;
+}
+
+#reviews-list li .stars {
+    color: #ffd700;
+    margin-bottom: 5px;
+    display: block;
+    font-size: 1rem;
 }

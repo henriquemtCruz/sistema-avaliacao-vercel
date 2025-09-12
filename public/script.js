@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitBtn = document.getElementById('submit-btn');
     const reviewInput = document.getElementById('review-input');
     const message = document.getElementById('message');
+    const reviewsList = document.getElementById('reviews-list');
     let rating = 0;
 
     stars.forEach(star => {
@@ -22,6 +23,26 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    async function loadReviews() {
+        try {
+            const response = await fetch('/api/rate'); // agora GET no mesmo endpoint
+            const reviews = await response.json();
+    
+            reviewsList.innerHTML = '';
+            reviews.slice(0, 5).forEach(r => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <span class="stars">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</span>
+                    <p>${r.review || 'Sem comentário'}</p>
+                `;
+                reviewsList.appendChild(li);
+            });
+        } catch (error) {
+            reviewsList.innerHTML = '<li>Erro ao carregar avaliações.</li>';
+        }
+    }
+    
 
     submitBtn.addEventListener('click', async () => {
         const review = reviewInput.value;
@@ -43,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 reviewInput.value = '';
                 rating = 0;
                 updateStars(0);
+                loadReviews(); // recarregar lista
                 setTimeout(() => {
                     message.textContent = '';
                 }, 3000);
@@ -54,4 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.disabled = false;
         }
     });
+
+    // carregar avaliações ao iniciar
+    loadReviews();
 });
